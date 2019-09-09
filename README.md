@@ -1,5 +1,4 @@
 # terry.im
----
 
 `/home/terrywang`, `$HOME/terrywang` or `~terrywang` ;-)
 
