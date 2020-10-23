@@ -6,7 +6,18 @@
   <meta name="viewport" content="width=device-width" />
   <!-- <meta http-equiv="refresh" content="23;url=http://terrywang.net" /> -->
   <title>/home/terrywang</title>
-  <style type="text/css">
+
+  <style>
+    @font-face {
+      font-family: sarasa-mono;
+      src: url(./fonts/sarasa-mono-sc-regular.ttf);
+    }
+
+    @font-face {
+      font-family: sarasa-ui;
+      src: url(./fonts/sarasa-ui-sc-regular.ttf);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,15 +26,13 @@
     html,
     body {
       background-color: #343233;
-      font-family: 'Sarasa Mono SC', 'Sarasa Mono J', 'Sarasa Mono K', monospace;
-      src: url(./fonts/sarasa-mono-sc-regular.ttf);
+      font-family: sarasa-mono, monospace;
       color: #efdabb;
     }
 
     h1 {
       font-size: 200%;
-      font-family: 'Sarasa Term SC', 'Sarasa Term J', 'Sarasa Term K', monospace;
-      src: url(./fonts/sarasa-mono-sc-regular.ttf);
+      font-family: sarasa-mono, monospace;
       /*text-shadow: #DDD 5px 5px 5px;*/
       margin: 24px;
       color: #77aad5;
@@ -44,28 +53,30 @@
     ul {
       margin-left: 56px;
       list-style-type: square;
-      /*list-style: none;*/
+      /*list-style:none;*/
     }
 
     a {
-      /*color:grey;*/
+      /*color: grey;*/
+      /*color: #00FF00;*/
       color: #a7d3a9;
     }
 
     a:hover {
+      /*color: #DDD;*/
       color: #efdabb;
     }
   </style>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23507822-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23507822-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23507822-1');
-</script>
+    gtag('config', 'UA-23507822-1');
+  </script>
 
 </head>
 
