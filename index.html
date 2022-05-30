@@ -5,17 +5,19 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="viewport" content="width=device-width" />
   <!-- <meta http-equiv="refresh" content="23;url=http://terrywang.net" /> -->
+  <link rel="preload" as="font" href="./fonts/sarasa-mono-sc-regular.woff2" type="font/woff2" crossorigin="anonymous">
+  
   <title>/home/terrywang</title>
 
   <style>
     @font-face {
-      font-family: sarasa-mono;
-      src: url(./fonts/sarasa-mono-sc-regular.ttf);
-    }
-
-    @font-face {
-      font-family: sarasa-ui;
-      src: url(./fonts/sarasa-ui-sc-regular.ttf);
+      font-family: 'Sarasa Mono';
+      font-style: normal;
+      font-weight: normal;
+      src: local('sarasa-mono'),
+        url('./fonts/sarasa-mono-sc-regular.woff2') format('woff2'),
+        url('./fonts/sarasa-mono-sc-regular.ttf') format('truetype');
+      font-display: swap;
     }
 
     * {
@@ -26,13 +28,13 @@
     html,
     body {
       background-color: #343233;
-      font-family: sarasa-mono, monospace;
+      font-family: "Sarasa Mono", monospace;
       color: #efdabb;
     }
 
     h1 {
       font-size: 200%;
-      font-family: sarasa-mono, monospace;
+      font-family: "Sarasa Mono", monospace;
       /*text-shadow: #DDD 5px 5px 5px;*/
       margin: 24px;
       color: #77aad5;
