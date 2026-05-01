@@ -1,5 +1,5 @@
 # terry.im
 
-`/home/terrywang`, `$HOME/terrywang` or `~terrywang` ;-)
+Personal homepage of Terry Wang — styled as a terminal session transcript.
 
-Use git to manage static contents at home.
+Plain HTML/CSS, no build system, no dependencies. Self-hosted on a Raspberry Pi 4 running Fedora aarch64.
