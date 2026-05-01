@@ -1,0 +1,6 @@
+Contact: https://keybase.io/terrywang
+Contact: https://t.me/terrywang
+Expires: 2026-05-01T00:00:00.000Z
+Encryption: https://keybase.io/terrywang/pgp_keys.asc
+Canonical: https://terry.im/.well-known/security.txt
+Preferred-Languages: en, zh
