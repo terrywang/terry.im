@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <!-- <meta http-equiv="refresh" content="23;url=http://terrywang.net" /> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Terry Wang — Linux enthusiast, self-hoster, infrastructure engineer">
   <link rel="preload" as="font" href="./fonts/sarasa-mono-sc-regular.woff2" type="font/woff2" crossorigin="anonymous">
   <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABEREQABEAAAAAAAAAARAAAAAAAAAAEQAAAAAAAAABEAAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
   <title>/home/terrywang</title>
@@ -19,126 +19,178 @@
       font-display: swap;
     }
 
-    * {
+    :root {
+      --bg: #282627;
+      --fg: #efdabb;
+      --prompt: #77aad5;
+      --cmd: #299898;
+      --output: #a7d39a;
+      --link: #a7d3a9;
+      --link-hover: #efdabb;
+      --comment: #6a6567;
+      --accent: #f68d8c;
+      --font: "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono", "Menlo", "Consolas", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html,
+    html {
+      font-size: 15px;
+    }
+
     body {
-      background-color: #343233;
-      font-family: "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono", "Menlo", "Consolas", ui-monospace, monospace;
-      color: #efdabb;
-    }
-
-    h1 {
-      font-size: 200%;
-      font-family: "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono", "Menlo", "Consolas", ui-monospace, monospace;
-      /*text-shadow: #DDD 5px 5px 5px;*/
-      margin: 24px;
-      color: #77aad5;
-    }
-
-    h3 {
-      margin-left: 24px;
-      color: #299898;
-      font-size: 120%;
-    }
-
-    h4 {
-      margin-left: 24px;
-      color: #f68d8c;
-      font-size: 120%;
-    }
-
-    p {
-      margin-left: 24px;
-      /*color: blue;*/
-      font-size: 120%;
-    }
-
-    ul {
-      margin-left: 56px;
-      color: #a7d39a;
-      list-style-type: square;
-      /*list-style:none;*/
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      max-width: 72ch;
+      margin: 0 auto;
     }
 
     a {
-      /*color: grey;*/
-      /*color: #00FF00;*/
-      color: #a7d3a9;
+      color: var(--link);
+      text-decoration: none;
     }
 
     a:hover {
-      /*color: #DDD;*/
-      color: #efdabb;
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    .prompt::before {
+      content: "terrywang@pi:~$ ";
+      color: var(--prompt);
+    }
+
+    .prompt {
+      color: var(--cmd);
+      margin-top: 1.5rem;
+    }
+
+    .output {
+      color: var(--output);
+      padding-left: 2ch;
+    }
+
+    .output a {
+      color: var(--link);
+    }
+
+    .comment {
+      color: var(--comment);
+      margin-bottom: 0;
+    }
+
+    .comment::before {
+      content: "# ";
+    }
+
+    .comment + .prompt {
+      margin-top: 0;
+    }
+
+    section {
+      margin-bottom: 1.25rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    header pre {
+      color: var(--prompt);
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--comment);
+      color: var(--comment);
+      font-size: 0.85rem;
+    }
+
+    footer p {
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 13px; }
+      body { padding: 1rem; }
     }
   </style>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23507822-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23507822-1');
-  </script>
-
 </head>
 
 <body>
-  <h1>/home/terrywang</h1>
-  <h3>eza -lah ~/whatsup/</h3>
+  <header>
+    <pre>
+ _                           _
+| |_ ___ _ __ _ __ _   _   (_)_ __ ___
+| __/ _ \ '__| '__| | | |  | | '_ ` _ \
+| ||  __/ |  | |  | |_| |_ | | | | | | |
+ \__\___|_|  |_|   \__, (_)|_|_| |_| |_|
+                    |___/</pre>
+  </header>
 
-  <ul>
-    <li>/var/mail/terrywang -> echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d</li>
-    <li><a href="/tweetnest">journalctl -f $(which terrywang)</a></li>
-    <li><a href="https://log.terry.im">/var/log</a></li>
-    <li><a href="https://sites.google.com/site/imterry/">/etc/twiki</a></li>
-  </ul>
-  <br>
-  <h3>bat ~/.profile</h3>
-  <ul>
-    <li><a href="https://x.com/terrywang">/x</a></li>
-    <li><a href="https://github.com/terrywang">/github</a></li>
-    <li><a href="https://linkedin.com/in/terrywan9">/linkedin</a></li>
-    <li><a href="https://news.ycombinator.com/user?id=terrywang">/hacker/news</a></li>
-    <li><a href="https://t.me/terrywang">/telegram</a></li>
-    <li><a href="https://stackoverflow.com/users/1801697/terry-wang">/stack/overflow</a></li>
-    <li><a href="https://askubuntu.com/users/70270/terry-wang">/ask/ubuntu</a></li>
-    <li><a href="https://about.me/terrywang">/about/me</a></li>
-  </ul>
-  <br>
-  <h3>btop</h3>
-  <ul>
-    <li><a href="/phpsysinfo">/proc/version</a></li>
-    <li><a href="/stats/report.html">/proc/stat</a></li>
-  </ul>
-  <br>
-  <h3>uptime</h3>
-  <ul>
-      <li><a href="https://up.terry.im/status/terry">/proc/uptime</a></li>
-  </ul>
-  <br>
-  <h3>keys</h3>
-  <ul>
-    <li><a href="https://keybase.io/terrywang">/keybase</a></li>
-    <li><a href="https://keybase.io/terrywang/pgp_keys.asc">OpenPGP Public Key</a></li>
-    <li><a href="https://keys.pub/user/search?q=terrywang"><s>/keys.pub/user</s></a></li>
-  </ul>
-  <br>
-  <h4>Referrals <••></h4>
-  <ul>
-      <li><a href="https://www.linode.com/?r=c6507e14777bef096f7b69452fec8580efff5440">/linode</a></li>
-      <li><a href="https://m.do.co/c/a5b194f67421">/digitalocean</a></li>
-      <li><a href="https://www.name.com/referral/77260">/name.com</a></li>
-  </ul>
+  <main>
+    <section>
+      <p class="prompt">whoami</p>
+      <p class="output">Reasoning...</p>
+    </section>
 
-  <br>
-  <p>Proudly self-hosted on Pi 4 running Fedora aarch64 since Dec 2020.</p>
-  <s><p>Available on IPFS soon ;-)</p></s>
-  <p>Fedora Core 1 was my first full-time Linux desktop distro — it took me where I am today.</p>
+    <section>
+      <p class="prompt">cat /var/mail/terrywang</p>
+      <p class="output">echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d</p>
+    </section>
+
+    <section>
+      <p class="comment">what's up</p>
+      <p class="prompt">eza -lah ~/feeds/</p>
+      <p class="output"><a href="/tweetnest">journalctl</a></p>
+      <p class="output"><a href="https://log.terry.im">/var/log</a></p>
+      <p class="output"><a href="https://sites.google.com/site/imterry/">wiki</a></p>
+    </section>
+
+    <section>
+      <p class="comment">social</p>
+      <p class="prompt">bat ~/.profile</p>
+      <p class="output"><a href="https://x.com/terrywang">x</a>  <a href="https://github.com/terrywang">github</a>  <a href="https://linkedin.com/in/terrywan9">linkedin</a>  <a href="https://news.ycombinator.com/user?id=terrywang">hackernews</a></p>
+      <p class="output"><a href="https://t.me/terrywang">telegram</a>  <a href="https://stackoverflow.com/users/1801697/terry-wang">stackoverflow</a>  <a href="https://askubuntu.com/users/70270/terry-wang">askubuntu</a>  <a href="https://about.me/terrywang">about.me</a></p>
+    </section>
+
+    <section>
+      <p class="comment">system</p>
+      <p class="prompt">btop</p>
+      <p class="output"><a href="/phpsysinfo">/proc/version</a>  <a href="/stats/report.html">/proc/stat</a></p>
+    </section>
+
+    <section>
+      <p class="prompt">uptime</p>
+      <p class="output"><a href="https://up.terry.im/status/terry">/proc/uptime</a></p>
+    </section>
+
+    <section>
+      <p class="comment">keys</p>
+      <p class="prompt">gpg --list-keys terrywang</p>
+      <p class="output"><a href="https://keybase.io/terrywang">keybase</a>  <a href="https://keybase.io/terrywang/pgp_keys.asc">pgp public key</a></p>
+    </section>
+
+    <section>
+      <p class="comment">referrals</p>
+      <p class="prompt">cat ~/referrals.txt</p>
+      <p class="output"><a href="https://www.linode.com/?r=c6507e14777bef096f7b69452fec8580efff5440">linode</a>  <a href="https://m.do.co/c/a5b194f67421">digitalocean</a>  <a href="https://www.name.com/referral/77260">name.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proudly self-hosted on Raspberry Pi 4 — Fedora aarch64, since Dec 2020.</p>
+    <p>Fedora Core 1 was my first full-time Linux desktop distro — it took me where I am today.</p>
+  </footer>
 </body>
+
 </html>
