@@ -1,0 +1,30 @@
+# Terry Wang
+
+> Personal homepage of Terry Wang — a curious, truth-seeking Linux enthusiast since Fedora Core 1, belive in KISS, technology and Financial Literacy for good courses. Site is self-hosted on a Raspberry Pi 4 running Fedora aarch64.
+
+- Contact: `echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d`
+- Site: [terry.im](https://terry.im)
+
+## Social
+
+- [GitHub](https://github.com/terrywang): Open source projects and contributions
+- [LinkedIn](https://linkedin.com/in/terrywan9): Professional profile
+- [X](https://x.com/terrywang): Social posts
+- [Hacker News](https://news.ycombinator.com/user?id=terrywang): HN profile
+- [Telegram](https://t.me/terrywang): Messaging
+- [Stack Overflow](https://stackoverflow.com/users/1801697/terry-wang): Q&A contributions
+- [Ask Ubuntu](https://askubuntu.com/users/70270/terry-wang): Ubuntu community contributions
+
+## Writing
+
+- [Blog](https://log.terry.im): Personal blog
+- [Wiki](https://sites.google.com/site/imterry/): Knowledge base
+
+## Identity
+
+- [Keybase](https://keybase.io/terrywang): Identity verification
+- [PGP Public Key](https://keybase.io/terrywang/pgp_keys.asc): OpenPGP public key
+
+## System
+
+- [Uptime Status](https://up.terry.im/status/terry): Service monitoring dashboard
