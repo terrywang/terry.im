@@ -1,0 +1,11 @@
+/* AUTHOR */
+Terry Wang
+Contact: https://t.me/terrywang
+X: @terrywang
+From: Sydney, Australia
+
+/* SITE */
+Last Updated: 2025/05/01
+Language: English, Chinese (Simplified)
+Tools: Linux, Bash, Git, HTML, CSS, Vim, NeoVim, Zed, tmux, Cursor, Claude Code, Codex
+Hosting: Raspberry Pi 4, Fedora aarch64
