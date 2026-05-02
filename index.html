@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="Terry Wang — Linux enthusiast, self-hoster, infrastructure engineer"
+            content="Terry Wang — a curious, truth-seeking Linux enthusiast. Love KISS, technology and Financial Literacy."
         />
         <link
             rel="preload"
@@ -32,15 +32,15 @@
             }
 
             :root {
-                --bg: #282627;
-                --fg: #efdabb;
-                --prompt: #77aad5;
-                --cmd: #299898;
-                --output: #a7d39a;
-                --link: #a7d3a9;
-                --link-hover: #efdabb;
-                --comment: #6a6567;
-                --accent: #f68d8c;
+                --bg: #2d2d2d;
+                --fg: #cccccc;
+                --prompt: #6699cc;
+                --cmd: #66cccc;
+                --output: #99cc99;
+                --link: #99cc99;
+                --link-hover: #cccccc;
+                --comment: #999999;
+                --accent: #f2777a;
                 --font:
                     "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono",
                     "Menlo", "Consolas", ui-monospace, monospace;
@@ -110,6 +110,17 @@
                 margin-top: 0;
             }
 
+            #theme-select {
+                background: var(--bg);
+                color: var(--accent);
+                border: 1px solid var(--comment);
+                font-family: var(--font);
+                font-size: 0.85rem;
+                padding: 0.1rem 0.25rem;
+                cursor: pointer;
+                float: right;
+            }
+
             section {
                 margin-bottom: 1.25rem;
             }
@@ -156,6 +167,7 @@
  \__\___|_|  |_|   \__, (_)|_|_| |_| |_|
                     |___/</pre
             >
+            <select id="theme-select"></select>
         </header>
 
         <main>
@@ -194,9 +206,15 @@
                     <a href="https://t.me/terrywang">telegram</a>
                 </p>
                 <p class="output">
-                    <a href="https://news.ycombinator.com/user?id=terrywang">hackernews</a>
-                    <a href="https://stackoverflow.com/users/1801697/terry-wang">stackoverflow</a>
-                    <a href="https://askubuntu.com/users/70270/terry-wang">askubuntu</a>
+                    <a href="https://news.ycombinator.com/user?id=terrywang"
+                        >hackernews</a
+                    >
+                    <a href="https://stackoverflow.com/users/1801697/terry-wang"
+                        >stackoverflow</a
+                    >
+                    <a href="https://askubuntu.com/users/70270/terry-wang"
+                        >askubuntu</a
+                    >
                 </p>
             </section>
 
@@ -240,6 +258,98 @@
                 </p>
             </section>
         </main>
+
+        <script>
+            var themes = {
+                "tomorrow-night-eighties": {
+                    bg: "#2d2d2d",
+                    fg: "#cccccc",
+                    prompt: "#6699cc",
+                    cmd: "#66cccc",
+                    output: "#99cc99",
+                    link: "#99cc99",
+                    "link-hover": "#cccccc",
+                    comment: "#999999",
+                    accent: "#f2777a",
+                },
+                vibe: {
+                    bg: "#282627",
+                    fg: "#efdabb",
+                    prompt: "#77aad5",
+                    cmd: "#299898",
+                    output: "#a7d39a",
+                    link: "#a7d3a9",
+                    "link-hover": "#efdabb",
+                    comment: "#6a6567",
+                    accent: "#f68d8c",
+                },
+                "tokyo-night-storm": {
+                    bg: "#24283b",
+                    fg: "#c0caf5",
+                    prompt: "#7aa2f7",
+                    cmd: "#2ac3de",
+                    output: "#9ece6a",
+                    link: "#73daca",
+                    "link-hover": "#c0caf5",
+                    comment: "#565f89",
+                    accent: "#f7768e",
+                },
+                "catppuccin-frappe": {
+                    bg: "#303446",
+                    fg: "#c6d0f5",
+                    prompt: "#8caaee",
+                    cmd: "#99d1db",
+                    output: "#a6d189",
+                    link: "#81c8be",
+                    "link-hover": "#c6d0f5",
+                    comment: "#626880",
+                    accent: "#e78284",
+                },
+                "catppuccin-mocha": {
+                    bg: "#1e1e2e",
+                    fg: "#cdd6f4",
+                    prompt: "#89b4fa",
+                    cmd: "#89dceb",
+                    output: "#a6e3a1",
+                    link: "#94e2d5",
+                    "link-hover": "#cdd6f4",
+                    comment: "#585b70",
+                    accent: "#f38ba8",
+                },
+                "catppuccin-macchiato": {
+                    bg: "#24273a",
+                    fg: "#cad3f5",
+                    prompt: "#8aadf4",
+                    cmd: "#91d7e3",
+                    output: "#a6da95",
+                    link: "#8bd5ca",
+                    "link-hover": "#cad3f5",
+                    comment: "#5b6078",
+                    accent: "#ed8796",
+                },
+            };
+            function apply(name) {
+                var t = themes[name],
+                    r = document.documentElement.style;
+                for (var k in t) r.setProperty("--" + k, t[k]);
+                localStorage.setItem("theme", name);
+            }
+            var sel = document.getElementById("theme-select");
+            Object.keys(themes).forEach(function (name) {
+                var opt = document.createElement("option");
+                opt.value = name;
+                opt.textContent = name;
+                sel.appendChild(opt);
+            });
+            sel.onchange = function () {
+                apply(this.value);
+            };
+            var saved = localStorage.getItem("theme");
+            if (saved && themes[saved]) {
+                sel.value = saved;
+                apply(saved);
+            }
+        </script>
 
         <footer>
             <p>
