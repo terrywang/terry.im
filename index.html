@@ -1,196 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Terry Wang — Linux enthusiast, self-hoster, infrastructure engineer"
+        />
+        <link
+            rel="preload"
+            as="font"
+            href="./fonts/sarasa-mono-sc-regular.woff2"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="icon"
+            href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABEREQABEAAAAAAAAAARAAAAAAAAAAEQAAAAAAAAABEAAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        />
+        <title>/home/terrywang</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Terry Wang — Linux enthusiast, self-hoster, infrastructure engineer">
-  <link rel="preload" as="font" href="./fonts/sarasa-mono-sc-regular.woff2" type="font/woff2" crossorigin="anonymous">
-  <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABEREQABEAAAAAAAAAARAAAAAAAAAAEQAAAAAAAAABEAAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAARAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-  <title>/home/terrywang</title>
+        <style>
+            @font-face {
+                font-family: "Sarasa Mono SC";
+                font-style: normal;
+                font-weight: 400;
+                src:
+                    local("Sarasa Mono SC"),
+                    url("./fonts/sarasa-mono-sc-regular.woff2") format("woff2");
+                font-display: swap;
+            }
 
-  <style>
-    @font-face {
-      font-family: 'Sarasa Mono SC';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Sarasa Mono SC'),
-        url('./fonts/sarasa-mono-sc-regular.woff2') format('woff2');
-      font-display: swap;
-    }
+            :root {
+                --bg: #282627;
+                --fg: #efdabb;
+                --prompt: #77aad5;
+                --cmd: #299898;
+                --output: #a7d39a;
+                --link: #a7d3a9;
+                --link-hover: #efdabb;
+                --comment: #6a6567;
+                --accent: #f68d8c;
+                --font:
+                    "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono",
+                    "Menlo", "Consolas", ui-monospace, monospace;
+            }
 
-    :root {
-      --bg: #282627;
-      --fg: #efdabb;
-      --prompt: #77aad5;
-      --cmd: #299898;
-      --output: #a7d39a;
-      --link: #a7d3a9;
-      --link-hover: #efdabb;
-      --comment: #6a6567;
-      --accent: #f68d8c;
-      --font: "Sarasa Mono SC", "Cascadia Code", "Fira Code", "SF Mono", "Menlo", "Consolas", ui-monospace, monospace;
-    }
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+            html {
+                font-size: 15px;
+            }
 
-    html {
-      font-size: 15px;
-    }
+            body {
+                background: var(--bg);
+                color: var(--fg);
+                font-family: var(--font);
+                line-height: 1.6;
+                padding: 2rem 1.5rem;
+                max-width: 72ch;
+                margin: 0 auto;
+            }
 
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: var(--font);
-      line-height: 1.6;
-      padding: 2rem 1.5rem;
-      max-width: 72ch;
-      margin: 0 auto;
-    }
+            a {
+                color: var(--link);
+                text-decoration: none;
+            }
 
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
+            a:hover {
+                color: var(--link-hover);
+                text-decoration: underline;
+            }
 
-    a:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
+            .prompt::before {
+                content: "terrywang@pi:~$ ";
+                color: var(--prompt);
+            }
 
-    .prompt::before {
-      content: "terrywang@pi:~$ ";
-      color: var(--prompt);
-    }
+            .prompt {
+                color: var(--cmd);
+                margin-top: 1.5rem;
+            }
 
-    .prompt {
-      color: var(--cmd);
-      margin-top: 1.5rem;
-    }
+            .output {
+                color: var(--output);
+                padding-left: 2ch;
+            }
 
-    .output {
-      color: var(--output);
-      padding-left: 2ch;
-    }
+            .output a {
+                color: var(--link);
+            }
 
-    .output a {
-      color: var(--link);
-    }
+            .comment {
+                color: var(--comment);
+                margin-bottom: 0;
+            }
 
-    .comment {
-      color: var(--comment);
-      margin-bottom: 0;
-    }
+            .comment::before {
+                content: "# ";
+            }
 
-    .comment::before {
-      content: "# ";
-    }
+            .comment + .prompt {
+                margin-top: 0;
+            }
 
-    .comment + .prompt {
-      margin-top: 0;
-    }
+            section {
+                margin-bottom: 1.25rem;
+            }
 
-    section {
-      margin-bottom: 1.25rem;
-    }
+            header {
+                margin-bottom: 2rem;
+            }
 
-    header {
-      margin-bottom: 2rem;
-    }
+            header pre {
+                color: var(--prompt);
+                line-height: 1.4;
+            }
 
-    header pre {
-      color: var(--prompt);
-      line-height: 1.4;
-    }
+            footer {
+                margin-top: 2.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--comment);
+                color: var(--comment);
+                font-size: 0.85rem;
+            }
 
-    footer {
-      margin-top: 2.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--comment);
-      color: var(--comment);
-      font-size: 0.85rem;
-    }
+            footer p {
+                margin-bottom: 0.25rem;
+            }
 
-    footer p {
-      margin-bottom: 0.25rem;
-    }
+            @media (max-width: 480px) {
+                html {
+                    font-size: 13px;
+                }
+                body {
+                    padding: 1rem;
+                }
+            }
+        </style>
+    </head>
 
-    @media (max-width: 480px) {
-      html { font-size: 13px; }
-      body { padding: 1rem; }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <pre>
+    <body>
+        <header>
+            <pre>
  _                          _
 | |_ ___ _ __ _ __ _   _   (_)_ __ ___
 | __/ _ \ '__| '__| | | |  | | '_ ` _ \
 | ||  __/ |  | |  | |_| |_ | | | | | | |
  \__\___|_|  |_|   \__, (_)|_|_| |_| |_|
-                    |___/</pre>
-  </header>
+                    |___/</pre
+            >
+        </header>
 
-  <main>
-    <section>
-      <p class="prompt">whoami</p>
-      <p class="output">Reasoning...</p>
-    </section>
+        <main>
+            <section>
+                <p class="prompt">whoami</p>
+                <p class="output">Reasoning...</p>
+                <p class="comment">alias dog='glow'</p>
+                <p class="prompt">dog ~/README.md</p>
+                <p class="output">Hallucinating... Who am I?</p>
+            </section>
 
-    <section>
-      <p class="prompt">cat /var/mail/terrywang</p>
-      <p class="output">echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d</p>
-    </section>
+            <section>
+                <p class="prompt">cat /var/mail/terrywang</p>
+                <p class="output">echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d</p>
+            </section>
 
-    <section>
-      <p class="comment">what's up</p>
-      <p class="prompt">eza -lah ~/feeds/</p>
-      <p class="output"><a href="/tweetnest">journalctl</a></p>
-      <p class="output"><a href="https://log.terry.im">/var/log</a></p>
-      <p class="output"><a href="https://sites.google.com/site/imterry/">wiki</a></p>
-    </section>
+            <section>
+                <p class="comment">what's up</p>
+                <p class="prompt">eza -lah ~/feeds/</p>
+                <p class="output"><a href="/tweetnest">journalctl</a></p>
+                <p class="output">
+                    <a href="https://log.terry.im">/var/log</a>
+                </p>
+                <p class="output">
+                    <a href="https://sites.google.com/site/imterry/">wiki</a>
+                </p>
+            </section>
 
-    <section>
-      <p class="comment">social</p>
-      <p class="prompt">bat ~/.profile</p>
-      <p class="output"><a href="https://x.com/terrywang">x</a>  <a href="https://github.com/terrywang">github</a>  <a href="https://linkedin.com/in/terrywan9">linkedin</a>  <a href="https://news.ycombinator.com/user?id=terrywang">hackernews</a></p>
-      <p class="output"><a href="https://t.me/terrywang">telegram</a>  <a href="https://stackoverflow.com/users/1801697/terry-wang">stackoverflow</a>  <a href="https://askubuntu.com/users/70270/terry-wang">askubuntu</a>  <a href="https://about.me/terrywang">about.me</a></p>
-    </section>
+            <section>
+                <p class="comment">social</p>
+                <p class="prompt">bat ~/.profile</p>
+                <p class="output">
+                    <a href="https://x.com/terrywang">x</a>
+                    <a href="https://github.com/terrywang">github</a>
+                    <a href="https://linkedin.com/in/terrywan9">linkedin</a>
+                    <a href="https://t.me/terrywang">telegram</a>
+                </p>
+                <p class="output">
+                    <a href="https://news.ycombinator.com/user?id=terrywang">hackernews</a>
+                    <a href="https://stackoverflow.com/users/1801697/terry-wang">stackoverflow</a>
+                    <a href="https://askubuntu.com/users/70270/terry-wang">askubuntu</a>
+                </p>
+            </section>
 
-    <section>
-      <p class="comment">system</p>
-      <p class="prompt">btop</p>
-      <p class="output"><a href="/phpsysinfo">/proc/version</a>  <a href="/stats/report.html">/proc/stat</a></p>
-    </section>
+            <section>
+                <p class="comment">system</p>
+                <p class="prompt">btop</p>
+                <p class="output"><a href="/phpsysinfo">/proc/version</a></p>
+                <p class="output">
+                    <a href="/stats/report.html">/proc/stat</a>
+                </p>
+            </section>
 
-    <section>
-      <p class="prompt">uptime</p>
-      <p class="output"><a href="https://up.terry.im/status/terry">/proc/uptime</a></p>
-    </section>
+            <section>
+                <p class="prompt">uptime</p>
+                <p class="output">
+                    <a href="https://up.terry.im/status/terry">/proc/uptime</a>
+                </p>
+            </section>
 
-    <section>
-      <p class="comment">keys</p>
-      <p class="prompt">gpg --list-keys terrywang</p>
-      <p class="output"><a href="https://keybase.io/terrywang">keybase</a>  <a href="https://keybase.io/terrywang/pgp_keys.asc">pgp public key</a></p>
-    </section>
+            <section>
+                <p class="comment">keys</p>
+                <p class="prompt">gpg --list-keys terrywang</p>
+                <p class="output">
+                    <a href="https://keybase.io/terrywang">keybase</a>
+                    <a href="https://keybase.io/terrywang/pgp_keys.asc"
+                        >pgp public key</a
+                    >
+                </p>
+            </section>
 
-    <section>
-      <p class="comment">referrals</p>
-      <p class="prompt">cat ~/referrals.txt</p>
-      <p class="output"><a href="https://www.linode.com/?r=c6507e14777bef096f7b69452fec8580efff5440">linode</a>  <a href="https://m.do.co/c/a5b194f67421">digitalocean</a>  <a href="https://www.name.com/referral/77260">name.com</a></p>
-    </section>
-  </main>
+            <section>
+                <p class="comment">referrals</p>
+                <p class="prompt">tac ~/referrals.txt</p>
+                <p class="output">
+                    <a
+                        href="https://www.linode.com/?r=c6507e14777bef096f7b69452fec8580efff5440"
+                        >linode</a
+                    >
+                    <a href="https://m.do.co/c/a5b194f67421">digitalocean</a>
+                    <a href="https://www.name.com/referral/77260">name.com</a>
+                </p>
+            </section>
+        </main>
 
-  <footer>
-    <p>Proudly self-hosted on Raspberry Pi 4 — Fedora aarch64, since Dec 2020.</p>
-    <p>Fedora Core 1 was my first full-time Linux desktop distro — it took me where I am today.</p>
-  </footer>
-</body>
-
+        <footer>
+            <p>
+                Proudly self-hosted on Raspberry Pi 4 — Fedora aarch64, since
+                Dec 2020.
+            </p>
+            <p>
+                Fedora Core 1 was my first full-time Linux desktop distro — it
+                took me where I am today.
+            </p>
+        </footer>
+    </body>
 </html>
