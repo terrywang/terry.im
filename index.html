@@ -106,7 +106,8 @@
                 content: "# ";
             }
 
-            .comment + .prompt {
+            .comment + .prompt,
+            .output + .prompt {
                 margin-top: 0;
             }
 
@@ -259,8 +260,9 @@
             </section>
 
             <section>
-                <p class="prompt">cat /var/mail/terrywang</p>
-                <p class="output">echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d</p>
+                <p class="comment">you've got mail</p>
+                <p class="prompt">mail</p>
+                <p class="output">N 1 root@   Mon May 18  "ping me"</p>
             </section>
 
             <section>
@@ -331,16 +333,18 @@
             </section>
 
             <section>
-                <p class="comment">referrals</p>
-                <p class="prompt">tac ~/referrals.txt</p>
+                <p class="comment">principles</p>
+                <p class="prompt">tac ~/principles.md</p>
+                <p class="output">Live long, prosper.</p>
                 <p class="output">
-                    <a
-                        href="https://www.linode.com/?r=c6507e14777bef096f7b69452fec8580efff5440"
-                        >linode</a
-                    >
-                    <a href="https://m.do.co/c/a5b194f67421">digitalocean</a>
-                    <a href="https://www.name.com/referral/77260">name.com</a>
+                    Time in the market beats timing the market.
                 </p>
+                <p class="output">Put money where your mouth is.</p>
+                <p class="output">
+                    The market exposes human weakness faster than it rewards
+                    intelligence.
+                </p>
+                <p class="output">Trading is a battle against human nature.</p>
             </section>
         </main>
 
