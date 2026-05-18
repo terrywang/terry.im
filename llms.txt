@@ -1,9 +1,20 @@
 # Terry Wang
 
-> Personal homepage of Terry Wang — a curious, truth-seeking Linux enthusiast since Fedora Core 1, belive in KISS, technology and Financial Literacy for good courses. Site is self-hosted on a Raspberry Pi 4 running Fedora aarch64.
+> Personal homepage of Terry Wang — a curious, truth-seeking Linux enthusiast since Fedora Core 1. Believes in KISS, technology, and Financial Literacy for good causes. Self-hosted on a Raspberry Pi 4 running Fedora aarch64.
 
-- Contact: `echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d`
-- Site: [terry.im](https://terry.im)
+Contact: `echo "cm9vdEB0ZXJyeS5pbQo=" | base64 -d`
+
+## About
+
+Terry Wang has been running Linux as a daily driver since Fedora Core 1 (2003). The homepage at [terry.im](https://terry.im) is a single static `index.html` styled as a terminal session — no tracking, no analytics, no JavaScript frameworks, just a sprinkle of vanilla JS for the theme switcher. The site is self-hosted on a Raspberry Pi 4 running Fedora aarch64, online since December 2020.
+
+Recurring themes across the writing and profile: KISS as an engineering value, the Unix philosophy, long-term financial literacy, and skepticism toward hype cycles. The homepage's "principles" section captures the investing stance in five lines — long time horizons, conviction sizing, and the view that the market exposes human weakness faster than it rewards intelligence.
+
+## Site
+
+- [Homepage](https://terry.im): Terminal-themed landing page with links, principles, and system status
+- [Blog](https://log.terry.im): Long-form writing on Linux, self-hosting, technology, and financial literacy
+- [Wiki](https://sites.google.com/site/imterry/): Older personal knowledge base
 
 ## Social
 
@@ -12,19 +23,15 @@
 - [X](https://x.com/terrywang): Social posts
 - [Hacker News](https://news.ycombinator.com/user?id=terrywang): HN profile
 - [Telegram](https://t.me/terrywang): Messaging
-- [Stack Overflow](https://stackoverflow.com/users/1801697/terry-wang): Q&A contributions
+- [Stack Overflow](https://stackoverflow.com/users/1801697/terry-wang): Q&A contributions, mostly Linux and sysadmin
 - [Ask Ubuntu](https://askubuntu.com/users/70270/terry-wang): Ubuntu community contributions
-
-## Writing
-
-- [Blog](https://log.terry.im): Personal blog
-- [Wiki](https://sites.google.com/site/imterry/): Knowledge base
 
 ## Identity
 
-- [Keybase](https://keybase.io/terrywang): Identity verification
+- [Keybase](https://keybase.io/terrywang): Identity verification across the accounts above
 - [PGP Public Key](https://keybase.io/terrywang/pgp_keys.asc): OpenPGP public key
 
-## System
+## Optional
 
-- [Uptime Status](https://up.terry.im/status/terry): Service monitoring dashboard
+- [Uptime Status](https://up.terry.im/status/terry): Public service monitoring dashboard for the Pi
+- [System Info](https://terry.im/phpsysinfo): Live `/proc` view via phpSysInfo

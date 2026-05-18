@@ -18,15 +18,32 @@ Allow: /
 User-agent: Baiduspider
 Disallow: /
 
-# AI crawlers — blocked
+# AI search & retrieval — allow (real-time fetch for AI answers)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI user-triggered fetchers — allow (fire when a user pastes the URL)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# AI training crawlers — blocked
 # OpenAI
 User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: OAI-SearchBot
 Disallow: /
 
 User-agent: Operator
@@ -74,23 +91,8 @@ Disallow: /
 User-agent: bedrockbot
 Disallow: /
 
-# ByteDance
-User-agent: Bytespider
-Disallow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: Perplexity-User
-Disallow: /
-
 # Cohere
 User-agent: cohere-ai
-Disallow: /
-
-# Mistral
-User-agent: MistralAI-User
 Disallow: /
 
 # DeepSeek
@@ -115,6 +117,10 @@ User-agent: PhindBot
 Disallow: /
 
 User-agent: PetalBot
+Disallow: /
+
+# Undeclared / poorly-behaved — blocked
+User-agent: Bytespider
 Disallow: /
 
 # LLM-friendly content available at /llms.txt
